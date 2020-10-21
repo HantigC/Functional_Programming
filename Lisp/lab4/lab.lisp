@@ -66,3 +66,59 @@
         ((or (null nd) (> st nd)) (null nd))
     )
 )
+(defun fibo (n)
+    (do
+        (
+            (iter (- n 1) (- iter 1))
+            (acc1 0 acc2)
+            (acc2 1 (+ acc1 acc2))
+        )
+        ((zerop iter) acc1)
+    )
+)
+(defun elim_nr (lista)
+    (do
+        (
+            (iter lista (cdr iter))
+            (rez nil)
+        )
+        ((null iter) rez)
+        (setf 
+            rez 
+            (append 
+                rez 
+                (if (not (numberp (car iter))) (list (car iter)))
+            )
+        )
+    )
+)
+(defun elim_nr_l (lista)
+    (let ((rez nil) (iter lista))
+        (loop
+            (if (null iter) (return rez))
+            (when (not (numberp (car iter))) (setf rez (append rez (list (car iter)))))
+            (setf iter (cdr iter))
+        )
+        rez
+    )
+)
+(defun elim_num (lista)
+    (do
+        (
+            (iter lista (cdr iter))
+            (elem (car lista) (car iter))
+            (rez nil)
+        )
+        ((endp iter) rez)
+        (setf 
+            rez
+            (append
+                rez
+                (cond
+                    ((listp (car iter)) (list (elim_num (car iter))))
+                    ((not (numberp (car iter))) (list (car iter)))
+                )
+            )
+        )
+    )
+)
