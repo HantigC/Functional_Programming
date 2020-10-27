@@ -63,6 +63,13 @@
 )
 
 (print '(insertion-sort))
-(insertion '(1 2 3 4 3 2 1 5))
+(print (insertion '(1 2 3 4 3 2 1 5)))
+(print (insertion '(1 2 3 4 5)))
+(print (insertion '(5 4 3 2 1)))
+(print (insertion '(2 3 4 5 1)))
 (print '(bubble-sort))
-(bubble-sort '(1 2 3 4 3 2 1 5))
+(print (bubble-sort '(1 2 3 4 3 2 1 5)))
+(print (bubble-sort '(1 2 3 4 5 6)))
+(print (bubble-sort '(5 4 3 2 1)))
+(print (bubble-sort '(2 3 4 5 1)))
+
