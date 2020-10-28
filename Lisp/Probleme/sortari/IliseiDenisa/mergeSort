@@ -1,0 +1,36 @@
+
+(defun merge_ (a b)
+	(let ((c '()))
+		(loop
+			(when (or (null a) (null b))  (return T))
+			(cond
+				((> (car a) (car b)) (setf c (append c (list (car b)))) (setf b (cdr b)) )
+				(T (setf c (append c (list (car a)))) (setf a (cdr a)) )
+			)
+			
+		)
+		(loop
+			(when (null a) (return T))
+			(setf c (append c (list (car a))))  ;add a[0] to the end of c
+			(setf a (cdr a)) ; remove a[0]
+		)
+		(loop
+			(when (null b) (return T))
+			(setf c (append c (list (car b))))  ;add b[0] to the end of c
+			(setf b (cdr b)) ; remove b[0]
+		)
+		c
+	)
+)
+
+(defun mergeSort (lista)
+	(cond 
+		((= 1 (length lista)) lista)
+		(T 
+			(merge_ (mergeSort (subseq lista 0 (ceiling (/ (length lista) 2)))) (mergeSort (subseq lista (ceiling (/ (length lista) 2)))) 
+			)
+		)
+			
+		
+	)
+)
