@@ -53,10 +53,10 @@
 )
 
 (print '(selection-sort))
-(print (selection '(6 8 12 653 512 42 56 653)))
-(print (selection '(1 2 3 4 5)))
-(print (selection '(5 4 3 2 1)))
-(print (selection '(1 2 3 4 3 2 1 5)))
+(print (selectionsort '(6 8 12 653 512 42 56 653)))
+(print (selectionsort '(1 2 3 4 5)))
+(print (selectionsort '(5 4 3 2 1)))
+(print (selectionsort '(1 2 3 4 3 2 1 5)))
 
 (print '(quicksort))
 (setf arr '(6 8 12 653 512 42 56 653))
