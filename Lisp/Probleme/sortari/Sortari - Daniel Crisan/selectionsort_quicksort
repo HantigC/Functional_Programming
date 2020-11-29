@@ -1,0 +1,69 @@
+; Crisan Daniel-Iulian
+
+(defun swap (lista a b)
+    (setf aux (nth a lista))
+    (setf (nth a lista) (nth b lista ))
+    (setf (nth b lista) aux)
+    lista
+)
+
+(defun selectionsort (lista)
+    (do*
+        (
+         (i 0 (+ i 1))
+        )
+        ((equal i (- (length lista) 1)) lista)
+        (setf min_idx i)
+        (do*
+            ((j (+ i 1) (+ j 1)))
+            ((equal j (length lista)))
+            (if (< (nth j lista) (nth min_idx lista)) (setf min_idx j))
+        )
+        (setf lista (swap lista min_idx i)) 
+    )
+)
+
+(defun partition (lista low high)
+    (setf pivot (nth high lista))
+    (setf i (- low 1))
+    (do*
+        ((j low (+ j 1)))
+        ((equal j high))
+        (cond 
+            ((< (nth j lista) pivot) 
+                (setf i (+ i 1)) 
+                (setf lista (swap lista i j))
+            )
+        )
+    )
+    (setf lista (swap lista (+ i 1) high))
+    (+ i 1)
+)
+
+(defun quicksort (lista low high)
+    (cond
+        (
+            (< low high)
+        (setf pi (partition lista low high)) 
+        (quicksort lista low (- pi 1))
+        (quicksort lista (+ pi 1) high)
+        ) 
+    )
+    lista
+)
+
+(print '(selection-sort))
+(print (selectionsort '(6 8 12 653 512 42 56 653)))
+(print (selectionsort '(1 2 3 4 5)))
+(print (selectionsort '(5 4 3 2 1)))
+(print (selectionsort '(1 2 3 4 3 2 1 5)))
+
+(print '(quicksort))
+(setf arr '(6 8 12 653 512 42 56 653))
+(print (quicksort arr 0 (- (length arr) 1)))
+(setf arr '(1 2 3 4 5))
+(print (quicksort arr 0 (- (length arr) 1)))
+(setf arr '(5 4 3 2 1))
+(print (quicksort arr 0 (- (length arr) 1)))
+(setf arr '(1 2 3 4 3 2 1 5))
+(print (quicksort arr 0 (- (length arr) 1)))
