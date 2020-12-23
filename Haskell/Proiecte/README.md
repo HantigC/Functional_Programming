@@ -10,4 +10,4 @@
 ## O sa va dau ceva materiale pentru fiecare proiect.
 ## Deadline: ultima saptamana, 14 Ianuarie 2021
 ## Propuneti idei
-## Codul sa-l punelti intr-un directorul: Proiecte/<Numele vostru>/
+## Codul sa-l punelti in directorul: Proiecte/"Numele vostru"/
