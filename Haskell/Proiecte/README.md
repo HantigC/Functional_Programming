@@ -4,6 +4,7 @@
 2. Spam-classifier 
 3. Text Summarization 
 4. Tic-Tac-Toe AI (nu e nevoie de UI, doar cmd, pozitiile se specifica prin numere)
+    1. Maria Alexandra Danciu - min-max
 5. Spam-classifier 
 6. Nu mai am idei. (o sa mai adaug in cazul in care se epuizeaza lista a.k.a. lazy loading)
 ## Sa-mi comunicati pe teams proiectele alese. 
